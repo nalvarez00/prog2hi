@@ -19,7 +19,7 @@
 #include <sys/types.h>
 
 
-int isValidCommand(int command);
+int isValidCommand(int command,int n);
 
 void createDirectory();
 
@@ -37,5 +37,10 @@ void printMainMenu();
 
 void printFileStatus();
 
+void appendMode();
+
+void overwriteMode();
+
+void insertMode();
 
 #endif
