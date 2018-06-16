@@ -24,8 +24,6 @@
 
 #include <fcntl.h>
 
-int isInt(char *str);
-
 int isValidCommand(int command, int options);
 
 void getValidCommand(int * command, int options);
