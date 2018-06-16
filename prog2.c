@@ -10,25 +10,35 @@ int isValidCommand(int command, int options){
 }
 
 void createDirectory(){
-	char dirName[256];
+	char name[256];
 	char currDir[256];
-	printf("enter the name of the directory file:");
+	printf("enter the name of the directory file: ");
 	while ((c = getchar()) != '\n' && c != EOF); 
-	fgets(dirName, sizeof(dirName), stdin);
-	printf("you entered: %s \n",dirName);
+	fgets(name, sizeof(name), stdin);
 	//get curret directory
 	getcwd(currDir, sizeof(currDir)); 	
-	printf("the current directory is: %s \n",currDir);
 	//add a slash then the name of the new directory
    	strcat(currDir, "/");
-	strcat(currDir, dirName);
+	strcat(currDir, name);
 	//pass that string to mkdir()
-	mkdir(currDir, umask(111));
+	mkdir(currDir, umask(0000));
 	printf("created directory: %s \n", currDir);
 }
 
-void createFile(/*char * fileName*/){
-	printf("enter the name:");
+void createFile(){
+	char name[256];
+	char currDir[256];
+	printf("enter the name of the file: ");
+	while ((c = getchar()) != '\n' && c != EOF); 
+	fgets(name, sizeof(name), stdin);
+	//store the curret directory in currDir
+	getcwd(currDir, sizeof(currDir)); 	
+	//add a slash then the name of the new directory
+   	strcat(currDir, "/");
+	strcat(currDir, name);
+	//pass that string to mkdir()
+	creat(currDir, umask(0000));
+	printf("created file: %s \n", currDir);
 }
 
 void readFromFile(){
