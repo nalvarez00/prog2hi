@@ -10,6 +10,10 @@
 
 #include <string.h>
 
+#include <ctype.h>
+
+#include <string.h>
+
 #include <pthread.h>
 
 #include <unistd.h>
@@ -18,8 +22,11 @@
 
 #include <sys/types.h>
 
+int isInt(char *str);
 
-int isValidCommand(int command,int n);
+int isValidCommand(int command, int options);
+
+void getValidCommand(int * command, int options);
 
 void createDirectory();
 
@@ -35,6 +42,8 @@ void printDir();
 
 void printMainMenu();
 
+void printMenu6();
+
 void printFileStatus();
 
 void appendMode();
@@ -42,5 +51,6 @@ void appendMode();
 void overwriteMode();
 
 void insertMode();
+
 
 #endif
