@@ -22,6 +22,8 @@
 
 #include <sys/types.h>
 
+#include <fcntl.h>
+
 int isInt(char *str);
 
 int isValidCommand(int command, int options);
