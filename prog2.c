@@ -89,52 +89,33 @@ void writeToFile(/*char * fileName, char * mode*/){
 
 void readFromFile(){
     char name[256];
-    char fileLine[256];
-    printf("Enter the name of the file you want to read from: ");
-   while ((c = getchar()) != '\n' && c != EOF); // flush stdin
-   scanf("%[^\n]s",name);
-   // FILE * fd = fopen(name,"r");
-   // if (fd == NULL){
-     //   printf("Error opening file!\n");
-    //    exit(1);
-    //}
-   // while(fgets(fileLine, sizeof(fileLine), fd) != NULL){
-    //    printf("%s",fileLine);
-    //}﻿
-    //fclose(fd);
-   
-    
-    
+    printf("Name of file to read: ");
+    while ((c = getchar()) != '\n' && c != EOF); // flush stdin
+    scanf("%[^\n]s",name);
     
     pid_t pid1;
-    get_file_name(name);
+    getFilename(name);
     pid1 = fork();
-    if(pid1==0){
-        //child1
+    if(pid1==0){ //CHILD
         strcpy(s_cpy,name);
         if((fd = fopen(name,"r"))==NULL){
             perror("");
             exit(1);
         }
-        if((fd = fopen(strcat(s_cpy,".bak"),"w"))!=NULL){//if the .bak file already existed.
-            remove(s_cpy);            //remove old .bak file
+        if((fd = fopen(strcat(s_cpy,".bak"),"w"))!=NULL){
+            remove(s_cpy);                      //remove old .bak file if one already exist
             fclose(fd);
-            fd = fopen(s_cpy,"w");    //create new .bak file
+            fd = fopen(s_cpy,"w");              //create new .bak file
         }
-        read_file_to_file(name,fd);    //read from original file to .bak file
-        read_file_to_file(name,stdout);    //print to terminal
+        read_file_to_file(name,fd);
+        read_file_to_file(name,stdout);
         printf("\n");
         fclose(fd);
     }else if(pid1 > 0){
         wait(NULL);
-    }else{
-        // fork failed
-        printf("fork() failed!\n");
+    }else{                          // fork fail
+        printf("fork() fail\n");
     }
-    
-    
-    
-    
     
 }
 
@@ -209,7 +190,7 @@ void printDir(){
     }
     else
         perror ("Couldn't open the directory");
-    }
+}
 
 void printFileStatus(){
     struct stat info;
@@ -239,8 +220,6 @@ void printFileStatus(){
 void printMainMenu(){
     printf("\n1) Create a new directory file\n");
     printf("2) Create a new regular file\n");
-    //printf("3) Create child process to write sorted output\n");
-    //printf("4) Create child process to shadow write/read regular files\n");
     printf("3) Read from a file (print out to stdout)\n");
     printf("4) Write to a file in either insert, append, or overwrite mode\n");
     printf("5) Print file status (print out to stdout)\n");
@@ -254,15 +233,13 @@ void printMenu6(){
     printf("\n1) Append to a file\n");
     printf("2) Overwrite a file\n");
     printf("3) Insert into a file\n");
-    printf("4) exit\n");
+    printf("4) exit-go back to main menu\n");
     printf("Please select an option: ");
 }
 
-
-void get_file_name(char str[256]){
+void getFilename(char str[256]){
     printf("file name: ");
     scanf("%[^\n]s", str);
-    //fflush();
 }
 void read_file_to_file(char *name,FILE *to){
     fd=fopen(name,"r");
@@ -330,3 +307,4 @@ int main(){
     return 0;
     
 }
+
