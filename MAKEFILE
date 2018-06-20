@@ -1,0 +1,14 @@
+# Name: Andres Campos and Natalia Alvarez
+# Filename: Makefile
+
+CC=gcc
+FILES=a2.c a2.h
+NEWEXEC=filem
+OLDEXEC=a.out
+all:
+	$(CC) $(FILES)
+	mv $(OLDEXEC) $(NEWEXEC)
+	rm -f *.o
+
+clean:
+	rm $(NEWEXEC)
