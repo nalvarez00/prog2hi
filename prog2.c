@@ -198,11 +198,11 @@ void printMainMenu(){
 	printf("2) Create a new regular file\n");
 	//printf("3) Create child process to write sorted output\n");
 	//printf("4) Create child process to shadow write/read regular files\n");
-	printf("5) Read from a file (print out to stdout)\n");
-	printf("6) Write to a file in either insert, append, or overwrite mode\n");
-	printf("7) Print file status (print out to stdout)\n");
-	printf("8) Print directory listing (contents of dir file) (print out to stdout)\n");
-	printf("9) Exit\n");
+	printf("3) Read from a file (print out to stdout)\n");
+	printf("4) Write to a file in either insert, append, or overwrite mode\n");
+	printf("5) Print file status (print out to stdout)\n");
+	printf("6) Print directory listing (contents of dir file) (print out to stdout)\n");
+	printf("7) Exit\n");
 	printf("Please select an option: ");
 }
 
