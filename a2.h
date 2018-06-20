@@ -30,42 +30,27 @@ int isValidCommand(int command, int options);
 void getValidCommand(int * command, int options);
 
 struct dirent *ent;
-void get_file_name(char*);
+
+void getFilename(char*);
 void sort(void*,unsigned);
 void read_file_to_file(char*,FILE*);
 void read_file_to_string(char*,char *);
 void write_file(char*);
-void status(void);
-void dir_listing(char *);
-
-void createDirectory();
-
+void createDirectory(void);
 void createFile();
-
 void readFromFile();
-
 void writeToFile();
-
 void printDir();
-
 void printMainMenu();
-
 void printMenu6();
-
 void printFileStatus();
-
 void appendMode();
-
 void overwriteMode();
-
 void insertMode();
 
 FILE *fd;
-FILE *p_file;
-DIR *dir;
-char w_str[256];
+DIR *dp;
 char s_cpy[256];
-char file_name[256];
 int c;
 
 #endif
