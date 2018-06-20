@@ -24,6 +24,8 @@
 
 #include <fcntl.h>
 
+#include <dirent.h>
+
 int isValidCommand(int command, int options);
 
 void getValidCommand(int * command, int options);
@@ -35,8 +37,6 @@ void createFile();
 void readFromFile();
 
 void writeToFile();
-
-void printFile();
 
 void printDir();
 
