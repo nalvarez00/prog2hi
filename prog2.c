@@ -1,4 +1,4 @@
-#include "main.h"
+#include "a2.h"
 
 
 int c; //used for flushing stdin to get a new command
