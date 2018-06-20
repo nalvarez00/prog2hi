@@ -6,8 +6,7 @@ Assignment #2
 README
 
 Program Description:
-Implement a multi-processing file editor. The file editor shall provide the following
-functions:
+Implement a multi-processing file editor. The file editor shall provide the following functions:
 1. Create new directory files
 2. Create new regular files
 3. Create child process to write sorted output
@@ -18,7 +17,6 @@ functions:
 8. Print directory listing (contents of dir file) (print out to stdout) 
 
 Program contains the following files:
-
 a2.h -- header
 a2.c -- main source
 makefile -- makefile
@@ -28,7 +26,6 @@ make
 
 To run:
 ./filem
-
 
 Lessons Learned:
 Learned more about forks. 
